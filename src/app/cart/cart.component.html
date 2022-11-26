@@ -6,7 +6,7 @@
                 <div class="detail-item ">
                     <p>{{ product.name }}</p>
                     <p>{{ product.price | currency }}</p>
-                    <input (change)="onchange()" class="number-input" type="number" [(ngModel)]="product.count" >
+                    <input (ngModelChange)="onchange()" class="number-input" type="number" [(ngModel)]="product.count" >
                 </div>
 
             </div>
