@@ -8,7 +8,6 @@ import { Observable } from 'rxjs';
 })
 export class FetchDataService {
 
-  cartData: Product[] = []
   selectedProduct: Product = new Product();
   order: {name:string, price:number} = {name:'', price:0};
 
@@ -18,13 +17,7 @@ export class FetchDataService {
    return  this.http.get<Product[]>('./assets/data.json');
   }
 
-  addToCart(product: Product){
-    this.cartData.push(product);
-  }
 
-  clearCart(){
-    this.cartData = [];
-  }
 
   setSelectedProduct(product: Product){
     this.selectedProduct = product;
@@ -34,9 +27,7 @@ export class FetchDataService {
     return this.selectedProduct;
   }
 
-  getCart(): Product[]{
-    return this.cartData;
-  }
+
 
   setOrder(name:string, price:number){
     this.order = {name, price}

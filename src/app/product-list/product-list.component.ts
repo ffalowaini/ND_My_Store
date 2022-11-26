@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../model/product';
+import { CartService } from '../services/cart.service';
 import { FetchDataService } from '../services/fetch-data.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { FetchDataService } from '../services/fetch-data.service';
 })
 export class ProductListComponent implements OnInit {
 
-  constructor(private service:FetchDataService) { }
+  constructor(private service:FetchDataService, private cartService: CartService) { }
 
   data: Product[] = [];
   
@@ -18,5 +19,12 @@ export class ProductListComponent implements OnInit {
       this.data = resp;
     })
   }
+
+
+  addToCart(p: Product){
+    this.cartService.addToCart(p)
+    alert("ADDED SUCCSESFULLY!!")
+  }
+
 
 }

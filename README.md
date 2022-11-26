@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.9.
 
+## Overview
+This project is to build a e-commerce website where the users can view a list of available products to purchase, add them to a shopping cart, and ultimately complete the checkout process.
+
+
 ## Development server
 First run `npm install` to download all reqiured libs. 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.

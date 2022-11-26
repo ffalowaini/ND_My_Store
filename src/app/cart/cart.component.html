@@ -6,7 +6,7 @@
                 <div class="detail-item ">
                     <p>{{ product.name }}</p>
                     <p>{{ product.price | currency }}</p>
-                    <input (ngModelChange)="onchange()" class="number-input" type="number" [(ngModel)]="product.count" >
+                    <input (change)="onchange(product)" class="number-input" type="number" [(ngModel)]="product.count" >
                 </div>
 
             </div>
@@ -17,18 +17,35 @@
         <div class="form-margin">
             <form [formGroup]="form" (ngSubmit)="onSubmit()">
 
-            <div>
+            <div class="controler">
                 <label class="label">Full Name</label>
                 <input class="input" formControlName="name">
+                <div *ngIf="form.controls['name'].invalid && (form.controls['name'].dirty || form.controls['name'].touched)" class="alert">
+                    <div *ngIf="form.controls['name'].errors">
+                    Please enter a valid name with min length 5
+                  </div>
+                </div>
             </div>
-            <div>
+
+            <div class="controler">
                 <label class="label">Address</label>
                 <input class="input" formControlName="address">
+                <div *ngIf="form.controls['address'].invalid && (form.controls['address'].dirty || form.controls['address'].touched)" class="alert">
+                    <div *ngIf="form.controls['address'].errors">
+                    Please enter a valid address
+                  </div>
+                </div>
             </div>
-            <div>
+            <div class="controler">
                 <label class="label">Credit Card Number</label>
-                <input  class="input"  formControlName="card">
+                <input max="14" pattern="" class="input"  formControlName="card">
+                <div *ngIf="form.controls['card'].invalid && (form.controls['card'].dirty || form.controls['card'].touched)" class="alert">
+                    <div *ngIf="form.controls['card'].errors">
+                    Please enter a valid card number with 14 digits
+                  </div>
+                </div>
             </div>
+
             <div>
                 <button [disabled]="!form.valid" type="submit" class="btn">Submit</button>
             </div>

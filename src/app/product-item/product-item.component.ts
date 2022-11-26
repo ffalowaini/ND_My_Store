@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { Product } from '../model/product';
+import { CartService } from '../services/cart.service';
 import { FetchDataService } from '../services/fetch-data.service';
 
 @Component({
@@ -11,6 +13,7 @@ export class ProductItemComponent implements OnInit {
 
   @Input() product:any;
   count: number = 1;
+  @Output() addToCartEvent = new EventEmitter<Product>();
 
   constructor(private router: Router, private service:FetchDataService) { }
 
@@ -24,8 +27,7 @@ export class ProductItemComponent implements OnInit {
 
 
   addToCart() {
-    this.service.addToCart({...this.product, count: this.count})
-    alert("ADDED SUCCSESFULLY!!")
+    this.addToCartEvent.emit({...this.product, count: this.count});
   }
 
 }
