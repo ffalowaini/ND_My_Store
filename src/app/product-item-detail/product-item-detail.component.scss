@@ -1,0 +1,41 @@
+img {
+  border-radius: 10px;
+  width: 320px;
+}
+
+.select-input {
+  width: 108px; 
+  height: 30px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.detail-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 64px;
+}
+
+.detail-item {
+  margin-left: 128px;
+  margin-right: 128px;
+}
+
+.back-link {
+  margin: 8px 0 ;
+  color: aqua;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.btn {
+  width: 108px; 
+  height: 30px;
+  background-color: blue;
+  border: none;
+  color: white;
+  border-radius: 3px;
+display: block;
+cursor: pointer;
+
+}

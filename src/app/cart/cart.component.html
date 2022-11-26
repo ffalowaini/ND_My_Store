@@ -1,1 +1,42 @@
-<p>cart works!</p>
+<div class="cart-panel " *ngIf="cart.length > 0">
+    <div class="cart-container ">
+        <div class="cart-item-details" >
+            <div class="cart-item " *ngFor="let product of cart">
+                <img class="img" src="{{product.url}}"/>
+                <div class="detail-item ">
+                    <p>{{ product.name }}</p>
+                    <p>{{ product.price | currency }}</p>
+                    <input (change)="onchange()" class="number-input" type="number" [(ngModel)]="product.count" >
+                </div>
+
+            </div>
+            <h2> Total:  {{ total | currency }}</h2>
+
+        </div>
+
+        <div class="form-margin">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+            <div>
+                <label class="label">Full Name</label>
+                <input class="input" formControlName="name">
+            </div>
+            <div>
+                <label class="label">Address</label>
+                <input class="input" formControlName="address">
+            </div>
+            <div>
+                <label class="label">Credit Card Number</label>
+                <input  class="input"  formControlName="card">
+            </div>
+            <div>
+                <button [disabled]="!form.valid" type="submit" class="btn">Submit</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="empty-cart-message" *ngIf="cart.length < 1">
+<h2>No Item added!!</h2>
+</div>
