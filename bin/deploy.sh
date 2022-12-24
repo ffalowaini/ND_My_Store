@@ -1,0 +1,1 @@
+aws s3 cp --recursive --acl public-read ./dist/online-store s3://online-store-604986012671

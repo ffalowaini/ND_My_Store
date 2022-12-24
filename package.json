@@ -2,11 +2,13 @@
   "name": "online-store",
   "version": "0.0.0",
   "scripts": {
+    "install": "npm install",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy": "chmod +x bin/deploy.sh && bin/deploy.sh"
   },
   "private": true,
   "dependencies": {
