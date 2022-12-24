@@ -2,7 +2,7 @@
   "name": "online-store",
   "version": "0.0.0",
   "scripts": {
-    "install": "npm install",
+    "install-dependencies": "npm install",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
